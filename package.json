@@ -1,0 +1,24 @@
+{
+  "name": "portfolio-app",
+  "version": "0.0.1",
+  "description": "A simple portofolio using react, node/express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renrizzolo/portfolio-app.git"
+  },
+  "keywords": [
+    "portfolio",
+    "react",
+    "express"
+  ],
+  "author": "Ren Rizzolo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/renrizzolo/portfolio-app/issues"
+  },
+  "homepage": "https://github.com/renrizzolo/portfolio-app#readme"
+}
