@@ -12,7 +12,31 @@
 }
 
 .tweet-item{
+    margin-bottom: 0.5em;
+	  background: #f4f8fb;
+	  border: 1px solid #DBE0E4;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    	    border-top-left-radius: 50px;
+	    border-bottom-left-radius: 50px;
+/*   &:nth-of-type(odd){
+	    border-top-right-radius: 50px;
+	    border-bottom-left-radius: 50px;
+    }
+    &:nth-of-type(even){
+	    border-top-left-radius: 50px;
+	    border-bottom-right-radius: 50px;
+    }*/
+    .tweet-item__image{
+			margin-right: 0.5em;
+    }
 	p{
+		margin:0.25em 0;
 		font-size: 1rem;
 	}
 }

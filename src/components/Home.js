@@ -3,15 +3,17 @@ import { fetchState } from 'react-router-server';
 import 'fetch-everywhere';
 import '../styles/home.css';
 import twttr from 'twitter-text';
+import { CSSTransitionGroup } from 'react-transition-group'
 
 const baseUrl = 'http://localhost:3000';
 
 const Tweet = (props) => (
 
+    <div className={`${props.index}-id tweet-item`}>
+      <div className="tweet-item__image"><img src={props.profile}/></div>
+      <p dangerouslySetInnerHTML={{__html: props.tweet}}></p>
+    </div>
   
-  <div className="tweet-item">
-    <p dangerouslySetInnerHTML={{__html: props.tweet}}></p>
-  </div>
 );
 
 @fetchState(
@@ -68,8 +70,7 @@ class Home extends Component {
           <h1 className="title">Hi, I'm<br/><span>Ren.</span></h1>
           <h2>here are some tweets</h2>
           {tweets && tweets.map((tweet, i) =>(
-          
-            <Tweet key={i} tweet={twttr.autoLink(twttr.htmlEscape(tweet.text, tweet.urls))}/>
+            <Tweet key={i} index={i} profile={tweet.user.profile_image_url_https} tweet={twttr.autoLink(twttr.htmlEscape(tweet.text, tweet.urls))}/>
             ))}
         </div>
       </div>
