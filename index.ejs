@@ -1,0 +1,21 @@
+<html>
+<head>
+  <title></title>
+  <% if (typeof files !== 'undefined') { %>
+  <% files.forEach(function (file) { %>
+  <link rel="preload" href="/<%- file %>" as="script">
+  <% }); %>
+  <% } %>
+  <link rel="favicon" src="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
+</head>
+<body>
+<div id="main"><% if (typeof html !== 'undefined') { %><%- html %><% } %></div>
+<script>
+  window.__INITIAL_STATE__ = <% if (typeof state !== 'undefined' && state) { %><%- JSON.stringify(state) %><% } else { %>null<% } %>;
+  window.__INITIAL_MODULES__ = <% if (typeof modules !== 'undefined' && modules) { %><%- JSON.stringify(modules) %><% } else { %>null<% } %>;
+</script>
+<script src="/app.js"></script>
+</body>
+</html>
+<link rel="stylesheet" type="text/css" href="/app.css">

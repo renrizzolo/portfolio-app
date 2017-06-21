@@ -1,15 +1,20 @@
 {
   "name": "portfolio-app",
-  "version": "0.0.1",
-  "description": "A simple portofolio using react, node/express",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel-node -- node_modules/.bin/webpack --watch",
+    "prestart": "npm run build",
+    "start": "babel-node --plugins system-import-transformer -- src/server.js",
+    "build-dev": "NODE_ENV='development' webpack -d --progress --profile --colors",
+    "build-prod": "NODE_ENV='production' webpack -p --progress --profile --colors",
+    "production": "babel src -d dist --plugins system-import-transformer -- src/server.js",
+    "serve": "babel-node --plugins system-import-transformer -- src/server.js"
   },
+  "browserslist": "last 3 versions",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/renrizzolo/portfolio-app.git"
   },
+  "main": "app.js",
   "keywords": [
     "portfolio",
     "react",
@@ -20,5 +25,49 @@
   "bugs": {
     "url": "https://github.com/renrizzolo/portfolio-app/issues"
   },
-  "homepage": "https://github.com/renrizzolo/portfolio-app#readme"
+  "homepage": "https://github.com/renrizzolo/portfolio-app#readme",
+  "dependencies": {
+    "babel-runtime": "^6.23.0",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.2",
+    "fetch-everywhere": "^1.0.5",
+    "prismjs": "^1.6.0",
+    "react": "^16.0.0-alpha.11",
+    "react-dom": "^16.0.0-alpha.11",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
+    "react-router-server": "^4.2.1",
+    "react-transition-group": "^1.2.0",
+    "twitter": "^1.7.1",
+    "twitter-text": "^1.14.6"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.1",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-system-import-transformer": "^3.1.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-regenerator": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-react-hmre": "^1.1.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-regenerator-runtime": "^6.5.0",
+    "babel-watch": "^2.0.6",
+    "css-loader": "^0.28.0",
+    "ejs": "^2.5.6",
+    "extract-css-chunks-webpack-plugin": "^1.0.15",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.11.1",
+    "postcss-loader": "^2.0.6",
+    "postcss-normalize": "^3.0.0",
+    "precss": "^1.4.0",
+    "stats-webpack-plugin": "^0.6.0",
+    "style-loader": "^0.16.1",
+    "uglify-js": "^2.8.23",
+    "webpack": "^3.0.0"
+  }
 }
