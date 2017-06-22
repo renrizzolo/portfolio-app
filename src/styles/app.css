@@ -1,6 +1,9 @@
 $charcolio: #1C1D21;
 $lightgrey: #DDDDDD;
 $pank:      #ef508b;
+
+$font-heading: "Archivo Black", "Helvetica Neue", Helvetica, sans-serif;
+
 *{
     box-sizing: border-box;
 }
@@ -25,8 +28,41 @@ pre{
     flex-direction: row;
     align-items: stretch;
 }
+
+.flex-container__column{
+    display: flex;
+    flex-direction: column;
+}
+.flex-container__row{
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+        @media screen and (min-width: 1062px){
+
+            > .flex-item{
+                margin-bottom: 0;
+            }
+        }
+}
+.flex-100{
+    flex: 100%;
+}
+.flex-item{
+    flex: 1;
+    margin-right: 1em;
+    margin-bottom: 1em;
+    min-width: 350px;
+    @media screen and (min-width: 1062px){
+        &:last-of-type{
+            margin-right: 0;
+            margin-bottom: 0;
+        }
+    }
+}
+
 nav {
-    background-color: rgba(255, 255, 255, 0.27);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-right: 10px solid white;
     flex: 20%;
     padding:3em 0em;
     height: 100%;
@@ -44,19 +80,22 @@ nav {
 
         &.active{
             transition: background 300ms ease;
-            background-color: rgba(0,0,0,0.25);
+                background-color: #83b5ff;
         }
         padding: 0;
         margin: 0;
             a {
-            color: $charcolio;
+            font-family: $font-heading;
+            font-size: 1.5em;
+            color: white;
             display: block;
             padding: 10px 20px;
             text-decoration: none;
             transition: color 150ms ease;
             &:hover{
-                   color: #3C3C3E;
-                   transition: color 150ms ease;
+                background-color: #83b5ff;
+                   color: #EEF0FA;
+                   transition: all 150ms ease;
                 }       
             }
         }

@@ -44,7 +44,7 @@ class Home extends Component {
         }
       )
       .catch(error => {this.props.done({
-          message: 'we broke it.'
+          message: 'Error loading.'
         });
       console.log(error);
     })
@@ -64,14 +64,24 @@ class Home extends Component {
   render() {
     const { message, tweets } = this.props;
     return (
-      <div className="home component">
-        <div className="text-box">
-          {message}
-          <h1 className="title">Hi, I'm<br/><span>Ren.</span></h1>
+      <div className="home component flex-container__row">
+        <div className="flex-100">
+          <h1 className="title">Hi, I'm <span className="stroke-single">Ren</span></h1>
+        </div>
+        <div className="flex-item text-box">
           <h2>here are some tweets</h2>
+          <p>{message}</p>
           {tweets && tweets.map((tweet, i) =>(
             <Tweet key={i} index={i} profile={tweet.user.profile_image_url_https} tweet={twttr.autoLink(twttr.htmlEscape(tweet.text, tweet.urls))}/>
             ))}
+        </div>
+        <div className="flex-item flex-container__column">
+          <div className="flex-item text-box">
+            <h2>And an empty box</h2>
+          </div>
+          <div className="flex-item text-box">
+            <h2>And an empty box</h2>
+          </div>
         </div>
       </div>
     );
